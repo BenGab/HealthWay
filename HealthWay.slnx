@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/console/">
+    <Project Path="src/HealthWay.Console/HealthWay.Console.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/HealthWay.AppHost/HealthWay.AppHost.csproj" />
     <Project Path="src/HealthWay.Application/HealthWay.Application.csproj" />
