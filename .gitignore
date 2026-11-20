@@ -1,0 +1,150 @@
+## .NET / Visual Studio / Aspire .gitignore
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+publish/
+PublishScripts/
+
+# Visual Studio cache / options
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.rsuser
+*.DotSettings.user
+_ReSharper*/
+*.[Rr]e[Ss]harper
+.idea/
+*.sln.iml
+
+# VS Code (keep shared config)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+TestResults/
+coverage*.json
+coverage*.xml
+*.coverage
+*.coveragexml
+.coverage/
+coverage/
+*.lcov
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+project.lock.json
+.nuget/
+*.nuget.props
+*.nuget.targets
+project.fragment.lock.json
+artifacts.props
+
+# MSBuild / compiler outputs
+*.log
+*.binlog
+*.msbuildlog
+*.pdb
+*.ilk
+*.obj
+*.pch
+*.tlog
+*.vspscc
+*.vssscc
+*.cache
+*.tmp
+*.tmp_proj
+*_i.c
+*_p.c
+*.sbr
+*.svclog
+
+# Roslyn / analyzers
+.sonarqube/
+.sonar/
+.scannerwork/
+
+# Aspire / dotnet user-secrets & local config
+.aspire/
+aspire-manifest.json
+**/appsettings.Local.json
+**/appsettings.*.Local.json
+secrets.json
+*.pfx
+*.snk
+.env
+.env.*
+!.env.example
+
+# Aspire local container volumes / data
+**/data/
+.azure/
+*.azd.env
+
+# Entity Framework
+**/Migrations/*.Designer.cs.bak
+
+# Local databases
+*.mdf
+*.ldf
+*.ndf
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Node / front-end (common in Aspire solutions)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.angular/
+.next/
+dist/
+.parcel-cache/
+.cache/
+
+# Python (Aspire polyglot hosts)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Misc
+*.swp
+*~
+*.bak
+*.orig
