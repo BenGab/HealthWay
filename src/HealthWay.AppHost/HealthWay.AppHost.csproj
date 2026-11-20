@@ -9,8 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="17.0.0" />
-    <PackageReference Include="Aspire.Hosting.Dotnet" Version="17.0.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Dotnet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HealthWay.Console\HealthWay.Console.csproj" IsAspireProjectResource="true" />
+    <ProjectReference Include="..\HealthWay.Shared\HealthWay.Shared.csproj" />
   </ItemGroup>
 
 </Project>

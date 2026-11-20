@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd ~/.nuget/packages/aspire.hosting.apphost/17.0.0/build && ls; grep -n -i \"ProjectMetadata\\\\|IsAspireProjectResource\\\\|ProjectReference\" *.targets | head -40; ls ~/.nuget/packages/aspire.hosting.dotnet/17.0.0/ ~/.nuget/packages/aspire.hosting.dotnet/17.0.0/lib/*)",
+      "Read(//c/Users/benko/.nuget/packages/aspire.hosting.apphost/17.0.0/build/**)",
+      "Read(//c/Users/benko/.nuget/packages/aspire.hosting.dotnet/17.0.0/**)",
+      "Bash(dotnet build *)"
+    ]
+  }
+}

@@ -1,1 +1,11 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var builder = Host.CreateApplicationBuilder(args);
+
+builder.AddServiceDefaults();
+builder.AddApplicationServices();
+builder.AddInfrastructureServices();
+
+using var host = builder.Build();
+await host.RunAsync();

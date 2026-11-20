@@ -1,5 +1,5 @@
 <Solution>
-  <Folder Name="/console/">
+  <Folder Name="/src/console/">
     <Project Path="src/HealthWay.Console/HealthWay.Console.csproj" />
   </Folder>
   <Folder Name="/src/">
@@ -8,5 +8,6 @@
     <Project Path="src/HealthWay.Domain/HealthWay.Domain.csproj" />
     <Project Path="src/HealthWay.Infrastructure/HealthWay.Infrastructure.csproj" />
     <Project Path="src/HealthWay.ServiceDefaults/HealthWay.ServiceDefaults.csproj" />
+    <Project Path="src/HealthWay.Shared/HealthWay.Shared.csproj" />
   </Folder>
 </Solution>
