@@ -14,8 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HealthWay.Console\HealthWay.Console.csproj" IsAspireProjectResource="true" />
-    <ProjectReference Include="..\HealthWay.Shared\HealthWay.Shared.csproj" />
+    <ProjectReference Include="..\Common\HealthWay.Common\HealthWay.Common.csproj" />
+    <ProjectReference Include="..\Common\HealthWay.Common.Aspire\HealthWay.Common.Aspire.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyMetadata Include="SolutionRoot" Value="$(SolutionRoot)" />
   </ItemGroup>
 
 </Project>

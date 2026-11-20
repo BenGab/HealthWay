@@ -1,7 +1,10 @@
-using HealthWay.Shared;
+using HealthWay.Common;
+using HealthWay.Common.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.HealthWay_Console>(ServiceNames.Console);
+builder.AddSolutionProject(ServiceNames.Console, ProjectNames.Console)
+    .WithHttpEndpoint()
+    .WithSendMessageCommand(CommandNames.SendMessage, "Send message", "/ask");
 
 builder.Build().Run();

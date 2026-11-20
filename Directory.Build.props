@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Absolute solution root (no trailing slash). Embedded into the AppHost as assembly metadata. -->
+    <SolutionRoot>$([MSBuild]::EnsureTrailingSlash('$(MSBuildThisFileDirectory)'))</SolutionRoot>
+    <SolutionRoot>$(SolutionRoot.TrimEnd('\').TrimEnd('/'))</SolutionRoot>
+  </PropertyGroup>
+</Project>

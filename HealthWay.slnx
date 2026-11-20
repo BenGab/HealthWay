@@ -1,13 +1,14 @@
 <Solution>
-  <Folder Name="/src/console/">
-    <Project Path="src/HealthWay.Console/HealthWay.Console.csproj" />
+  <Folder Name="/src/Agents/">
+    <Project Path="src/Agents/HealthWay.Agents.Application/HealthWay.Agents.Application.csproj" />
+    <Project Path="src/Agents/HealthWay.Agents.Domain/HealthWay.Agents.Domain.csproj" />
+    <Project Path="src/Agents/HealthWay.Agents.Infrastructure/HealthWay.Agents.Infrastructure.csproj" />
+    <Project Path="src/Agents/HealthWay.Agents.Console/HealthWay.Agents.Console.csproj" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/HealthWay.AppHost/HealthWay.AppHost.csproj" />
-    <Project Path="src/HealthWay.Application/HealthWay.Application.csproj" />
-    <Project Path="src/HealthWay.Domain/HealthWay.Domain.csproj" />
-    <Project Path="src/HealthWay.Infrastructure/HealthWay.Infrastructure.csproj" />
     <Project Path="src/HealthWay.ServiceDefaults/HealthWay.ServiceDefaults.csproj" />
-    <Project Path="src/HealthWay.Shared/HealthWay.Shared.csproj" />
+    <Project Path="src/Common/HealthWay.Common/HealthWay.Common.csproj" />
+    <Project Path="src/Common/HealthWay.Common.Aspire/HealthWay.Common.Aspire.csproj" />
   </Folder>
 </Solution>
