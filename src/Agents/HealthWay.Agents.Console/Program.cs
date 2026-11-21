@@ -1,18 +1,18 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+using HealthWay.Agents.Application.Chat;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-builder.AddServiceDefaults();
-builder.AddAgentsApplication();
-builder.AddAgentsInfrastructure();
+var builder = Host.CreateApplicationBuilder(args)
+    .AddServiceDefaults()
+    .AddAgentsApplication()
+    .AddAgentsInfrastructure();
 
-var app = builder.Build();
+using var host = builder.Build();
 
-// Entry point used by the Aspire dashboard command (the console has no stdin under Aspire).
-app.MapPost("/ask", (AskRequest request, ILogger<Program> logger) =>
-{
-    logger.LogInformation("Received message: {Message}", request.Message);
-    return Results.Text($"Received: {request.Message}");
-});
+var handler = host.Services.GetRequiredService<AskAgentHandler>();
 
-app.Run();
+var request = new AskAgentRequest("When should I choose Clean Architecture over vertical slices in a .NET solution?");
+Console.WriteLine($"Question: {request.Message}");
 
-internal sealed record AskRequest(string Message);
+var response = await handler.HandleAsync(request);
+Console.WriteLine($"Answer: {response.Answer}");

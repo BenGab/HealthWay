@@ -29,7 +29,14 @@ public static class Extensions
         builder.Services.ConfigureHttpClientDefaults(http =>
         {
             // Turn on resilience by default
-            http.AddStandardResilienceHandler();
+            // LLM calls (Ollama) can take minutes, especially on the first call while the model loads.
+            http.AddStandardResilienceHandler(options =>
+            {
+                options.AttemptTimeout.Timeout = TimeSpan.FromMinutes(5);
+                options.TotalRequestTimeout.Timeout = TimeSpan.FromMinutes(10);
+                options.CircuitBreaker.SamplingDuration = TimeSpan.FromMinutes(10);
+                options.Retry.MaxRetryAttempts = 1;
+            });
 
             // Turn on service discovery by default
             http.AddServiceDiscovery();

@@ -2,9 +2,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HealthWay.Agents.Application\HealthWay.Agents.Application.csproj" />
+    <ProjectReference Include="..\..\Common\HealthWay.Common\HealthWay.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Aspire.OllamaSharp" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
   </ItemGroup>
 

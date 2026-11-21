@@ -1,11 +1,15 @@
+using HealthWay.Common;
 using Microsoft.Extensions.Hosting;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class AgentsInfrastructureModule
 {
-    public static void AddAgentsInfrastructure(this IHostApplicationBuilder builder)
+    public static TBuilder AddAgentsInfrastructure<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
-        // No infrastructure registered yet (chat client implementation removed for now).
+        builder.AddOllamaApiClient(ServiceNames.Llama)
+            .AddChatClient();
+
+        return builder;
     }
 }

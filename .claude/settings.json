@@ -4,7 +4,15 @@
       "Bash(cd ~/.nuget/packages/aspire.hosting.apphost/17.0.0/build && ls; grep -n -i \"ProjectMetadata\\\\|IsAspireProjectResource\\\\|ProjectReference\" *.targets | head -40; ls ~/.nuget/packages/aspire.hosting.dotnet/17.0.0/ ~/.nuget/packages/aspire.hosting.dotnet/17.0.0/lib/*)",
       "Read(//c/Users/benko/.nuget/packages/aspire.hosting.apphost/17.0.0/build/**)",
       "Read(//c/Users/benko/.nuget/packages/aspire.hosting.dotnet/17.0.0/**)",
-      "Bash(dotnet build *)"
+      "Bash(dotnet build *)",
+      "Read(//c/Users/benko/.aspire/logs/**)",
+      "Bash(tasklist)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -m 10 -X POST http://127.0.0.1:14003/ask -H \"Content-Type: application/json\" -d '{\"message\":\"hello\"}')",
+      "Bash(taskkill //F //IM HealthWay.AppHost.exe //T)",
+      "Bash(taskkill //F //IM HealthWay.Agents.Console.exe)",
+      "Bash(curl -s https://api.nuget.org/v3-flatcontainer/wolverinefx/index.json)",
+      "Bash(curl -s https://api.nuget.org/v3-flatcontainer/microsoft.extensions.ai.abstractions/index.json)"
     ]
   }
 }

@@ -4,6 +4,14 @@ namespace HealthWay.Common;
 public static class ServiceNames
 {
     public const string Console = "healthway-agents-console";
+    public const string Ollama = "ollama";
+    public const string Llama = "llama3-2";
+}
+
+/// <summary>Ollama model identifiers.</summary>
+public static class ModelNames
+{
+    public const string Llama32 = "llama3.2";
 }
 
 /// <summary>Names of Aspire resource commands.</summary>

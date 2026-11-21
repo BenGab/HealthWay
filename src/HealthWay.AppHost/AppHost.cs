@@ -3,8 +3,14 @@ using HealthWay.Common.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
+var ollama = builder.AddOllama(ServiceNames.Ollama)
+    .WithGPUSupport()
+    .WithDataVolume();
+
+var llama = ollama.AddModel(ServiceNames.Llama, ModelNames.Llama32);
+
 builder.AddSolutionProject(ServiceNames.Console, ProjectNames.Console)
-    .WithHttpEndpoint()
-    .WithSendMessageCommand(CommandNames.SendMessage, "Send message", "/ask");
+    .WithReference(llama)
+    .WaitFor(llama);
 
 builder.Build().Run();
