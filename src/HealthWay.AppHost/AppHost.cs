@@ -11,6 +11,7 @@ var llama = ollama.AddModel(ServiceNames.Llama, ModelNames.Llama32);
 
 builder.AddSolutionProject(ServiceNames.Console, ProjectNames.Console)
     .WithReference(llama)
-    .WaitFor(llama);
+    .WaitFor(llama)
+    .WithTerminal();
 
 builder.Build().Run();

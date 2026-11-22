@@ -11,8 +11,17 @@ using var host = builder.Build();
 
 var handler = host.Services.GetRequiredService<AskAgentHandler>();
 
-var request = new AskAgentRequest("When should I choose Clean Architecture over vertical slices in a .NET solution?");
-Console.WriteLine($"Question: {request.Message}");
+Console.WriteLine("Ask the .NET architect (empty line to exit).");
 
-var response = await handler.HandleAsync(request);
-Console.WriteLine($"Answer: {response.Answer}");
+while (true)
+{
+    Console.Write("Question: ");
+    var question = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(question))
+        break;
+
+    var response = await handler.HandleAsync(new AskAgentRequest(question));
+    Console.WriteLine($"Answer: {response.Answer}");
+    Console.WriteLine();
+}
