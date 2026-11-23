@@ -12,7 +12,8 @@
       "Bash(taskkill //F //IM HealthWay.AppHost.exe //T)",
       "Bash(taskkill //F //IM HealthWay.Agents.Console.exe)",
       "Bash(curl -s https://api.nuget.org/v3-flatcontainer/wolverinefx/index.json)",
-      "Bash(curl -s https://api.nuget.org/v3-flatcontainer/microsoft.extensions.ai.abstractions/index.json)"
+      "Bash(curl -s https://api.nuget.org/v3-flatcontainer/microsoft.extensions.ai.abstractions/index.json)",
+      "Bash(git push *)"
     ]
   }
 }
