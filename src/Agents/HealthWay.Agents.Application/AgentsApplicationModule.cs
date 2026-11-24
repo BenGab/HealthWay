@@ -11,6 +11,7 @@ public static class AgentsApplicationModule
     public static TBuilder AddAgentsApplication<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
         builder.Services.AddTransient<AskAgentHandler>();
+        builder.Services.AddSingleton<IAgentSessionProvider, AgentSessionProvider>();
         builder.Services.TryAddSingleton(TimeProvider.System);
         builder.Services.AddTransient<IPatientVitalService, PatientVitalService>();
         builder.Services.AddValidatorsFromAssemblyContaining<PatientVitalsValidator>();

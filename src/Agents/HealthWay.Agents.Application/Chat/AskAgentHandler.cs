@@ -7,7 +7,7 @@ public sealed class AskAgentHandler([FromKeyedServices(PatientVitalsAgent.Name)]
 {
     public async Task<AskAgentResponse> HandleAsync(AskAgentRequest request, CancellationToken cancellationToken = default)
     {
-        var response = await agent.RunAsync(request.Message, cancellationToken: cancellationToken);
+        var response = await agent.RunAsync(request.Message, request.Session, cancellationToken: cancellationToken);
         return new AskAgentResponse(response.Text);
     }
 }

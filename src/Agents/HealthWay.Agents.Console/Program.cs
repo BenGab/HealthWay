@@ -1,6 +1,7 @@
 using HealthWay.Agents.Application.Chat;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Spectre.Console;
 
 var builder = Host.CreateApplicationBuilder(args)
     .AddServiceDefaults()
@@ -10,18 +11,26 @@ var builder = Host.CreateApplicationBuilder(args)
 using var host = builder.Build();
 
 var handler = host.Services.GetRequiredService<AskAgentHandler>();
+var sessions = host.Services.GetRequiredService<IAgentSessionProvider>();
+var agentSession = await sessions.CreateAsync();
 
-Console.WriteLine("Ask the .NET architect (empty line to exit).");
+AnsiConsole.MarkupLine("Ask the patient vitals assistant (type [bold]quit[/] to exit).");
 
 while (true)
 {
-    Console.Write("Question: ");
-    var question = Console.ReadLine();
+    var question = AnsiConsole.Prompt(
+        new TextPrompt<string>("[bold]Question:[/]").AllowEmpty());
 
-    if (string.IsNullOrWhiteSpace(question))
+    if (string.Equals(question.Trim(), "quit", StringComparison.OrdinalIgnoreCase))
         break;
 
-    var response = await handler.HandleAsync(new AskAgentRequest(question));
-    Console.WriteLine($"Answer: {response.Answer}");
-    Console.WriteLine();
+    if (string.IsNullOrWhiteSpace(question))
+        continue;
+
+    var response = await AnsiConsole.Status()
+        .Spinner(Spinner.Known.Dots)
+        .StartAsync("Thinking...", _ => handler.HandleAsync(new AskAgentRequest(question, agentSession)));
+
+    AnsiConsole.MarkupLineInterpolated($"[green]Answer:[/] {response.Answer}");
+    AnsiConsole.WriteLine();
 }
